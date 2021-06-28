@@ -1,0 +1,81 @@
+Criando primeiro container
+
+	$ sudo docker container run hello-world
+	
+Listar containers em execuão
+
+	$ sudo docker container ls
+	
+Listar todos containers
+
+	$ sudo docker container ls -a
+
+vagrant@kubedev:~$ sudo docker container ls -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
+f8047112b8e8        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes ago                       dreamy_jackson
+
+Criando container passando um nome 
+
+	$ sudo docker container run --name=meusegundocontainer hello-world
+
+Criando container no modo interativo (Acessa o container)
+
+	$ sudo docker container run -it ubuntu /bin/bash
+	(-i = interativo, -t = tty)
+	
+Removendo container
+
+	$ sudo docker container rm cde8d75da965
+	(cde8d75da965 é o id do container, pode ser passado o nomer também)
+	
+	Para remover forçando caso o container esteja em execução
+	
+	$ sudo docker container rm -f 39d6ebd7681b
+	
+Criar container em modo daemon
+
+	$ sudo docker container run -d nginx
+	
+Criar container passando a porta
+
+	$ sudo docker container run -d -p 8080:80 nginx
+	
+Parando um container
+
+	$ sudo docker container stop 807891782edc
+	
+Construindo imagem atraves de um docker file
+
+	$ sudo docker build -t ubuntu-curl .
+	
+	Imagem para subir no docker hub
+	
+	$ sudo docker image build -t lucasmaiafranco/ubuntu-curl:v1 .
+	
+	Criando outra imagem com outra tag(latest)
+	
+	$ sudo docker tag lucasmaiafranco/ubuntu-curl:v1 lucasmaiafranco/ubuntu-curl:latest
+	
+Listar as imagens da máquina
+
+	$ sudo docker image ls
+
+Removendo uma imagem
+
+	$ sudo docker image rm ubuntu-curl
+	
+Autenticar no Docker Hub
+
+	$ sudo docker login
+	
+Subir a imagem para o Docker Hub
+
+	$ sudo docker push lucasmaiafranco/ubuntu-curl:v1
+	
+Instalado Git
+
+	$ sudo apt install git
+	
+Baixando o projeto de conversão
+
+	$ git clone https://github.com/KubeDev/api-conversao.git

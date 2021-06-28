@@ -1,0 +1,10 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "kubedev" do |kubedev|
+    kubedev.vm.box = "debian/jessie64"
+	kubedev.vm.hostname = "kubedev"
+	kubedev.vm.network "forwarded_port", guest: 8080, host: 8080
+	kubedev.vm.provision :shell, inline: "apt install curl -y && curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh ./get-docker.sh"
+
+  end
+end

@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/N6170144/Desktop/kubedev/vm-debian","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
